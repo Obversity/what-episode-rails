@@ -1,5 +1,7 @@
 class QuestionsController < ApplicationController
 
+  before_action :authorize!, only: [:flag, :create, :update]
+
   def create
     question = Question.new(permitted_params)
     if question.valid?
