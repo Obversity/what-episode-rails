@@ -8,7 +8,7 @@ class AuthenticationController < ApplicationController
 
     # user not found
     if user.blank?
-      render json: { error: "No user with that email or username was fine" }, status: 404
+      render json: { errors: { username_error: "Username / email not found" } }, status: 404
     end
 
     # user found
@@ -19,7 +19,7 @@ class AuthenticationController < ApplicationController
         token = user.authenticate!
         render json: { notice: "Successfully logged in", token: token }, status: 200
       else # wrong password
-        render json: { error: 'Incorrect password' }, status: 401
+        render json: { errors: { password_error: 'Incorrect password' } }, status: 401
       end
     end
   end
