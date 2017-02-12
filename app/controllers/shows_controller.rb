@@ -1,7 +1,5 @@
 class ShowsController < ApplicationController
 
-  respond_to :json
-
   def index
     query = params[:search]
     @shows = Show.search(query)

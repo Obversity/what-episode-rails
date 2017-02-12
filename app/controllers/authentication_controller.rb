@@ -1,7 +1,5 @@
 class AuthenticationController < ApplicationController
 
-  respond_to :json
-
   def authenticate
     username = params[:username]
     user = User.find_by(username: username) || User.find_by(email: username)
