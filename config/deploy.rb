@@ -29,10 +29,14 @@ set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
-set :keep_assets, 2
-
-
+###
+# RAILS
+###
 set :migration_role, :app
+set :conditionally_migrate, true
+###
+# RAILS
+###
 
 
 ###
