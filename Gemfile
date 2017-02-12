@@ -16,9 +16,10 @@ gem 'pg_search'
 
 # Use Capistrano for deployment
 group :development do
-  gem "capistrano", "~> 3.7"
-  gem 'capistrano-rails', '~> 1.2'
-  gem 'capistrano-rbenv', '~> 2.0'
+  gem "capistrano", "~> 3.7", require: false
+  gem 'capistrano-rails', '~> 1.2', require: false
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
