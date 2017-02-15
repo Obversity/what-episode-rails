@@ -1,6 +1,6 @@
 class Season < ApplicationRecord
 
-  has_many :episodes
+  has_many :episodes, dependent: :destroy
   belongs_to :show
 
   validates :number, presence: true

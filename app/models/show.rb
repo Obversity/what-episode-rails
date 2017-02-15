@@ -1,7 +1,7 @@
 class Show < ApplicationRecord
   include PgSearch
 
-  has_many :seasons
+  has_many :seasons, dependent: :destroy
   has_many :episodes, through: :seasons
   has_many :questions, through: :episodes
 
