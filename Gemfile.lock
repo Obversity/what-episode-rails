@@ -63,6 +63,7 @@ GEM
       puma (>= 2.6)
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
+    connection_pool (2.2.1)
     erubis (2.7.0)
     ffi (1.9.17)
     figaro (1.1.1)
@@ -103,6 +104,8 @@ GEM
     puma (3.6.2)
     rack (2.0.1)
     rack-cors (0.4.0)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (5.0.1)
@@ -132,6 +135,12 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
+    redis (3.3.3)
+    sidekiq (4.2.9)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      rack-protection (>= 1.5.0)
+      redis (~> 3.2, >= 3.2.1)
     slop (3.6.0)
     spring (2.0.0)
       activesupport (>= 4.2)
@@ -173,6 +182,7 @@ DEPENDENCIES
   puma (~> 3.0)
   rack-cors
   rails (~> 5.0.1)
+  sidekiq
   spring
   spring-watcher-listen (~> 2.0.0)
   tzinfo-data

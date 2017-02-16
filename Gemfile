@@ -14,21 +14,13 @@ gem 'pg_search'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use Capistrano for deployment
-group :development do
-  gem "capistrano", "~> 3.7", require: false
-  gem 'capistrano-rails', '~> 1.2', require: false
-  gem 'capistrano-rbenv', '~> 2.0', require: false
-  gem 'capistrano3-puma',   require: false
-end
+gem 'sidekiq'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
 # for environment configuration / application.yml
 gem "figaro"
-
-
 
 group :development, :test do
   gem 'pry'
@@ -37,9 +29,13 @@ end
 
 group :development do
   gem 'listen', '~> 3.0.5'
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  # capistrano for deployment
+  gem "capistrano", "~> 3.7", require: false
+  gem 'capistrano-rails', '~> 1.2', require: false
+  gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
