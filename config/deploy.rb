@@ -15,6 +15,8 @@ set :puma_error_log,  "#{release_path}/log/puma.error.log"
 set :puma_preload_app, true
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true  # Change to false when not using ActiveRecord
+set :whenever_command, "bundle exec whenever"
+require "whenever/capistrano"
 
 
 namespace :puma do

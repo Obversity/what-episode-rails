@@ -9,20 +9,23 @@ gem 'rails', '~> 5.0.1'
 gem 'pg', '~> 0.18'
 gem 'puma', '~> 3.0'
 gem 'pg_search'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# background jobs
 gem 'sidekiq'
+gem 'redis-namespace'
+gem "capistrano-sidekiq"
+
+# scheduled jobs
+gem 'whenever', require: false
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
 # for environment configuration / application.yml
 gem "figaro"
-
-gem "capistrano-sidekiq"
 
 group :development, :test do
   gem 'pry'

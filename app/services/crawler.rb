@@ -21,10 +21,12 @@ class Crawler < Object
         show = Show.find_or_initialize_by(title: title)
         show.imdb_id = imdb_id
         show.save
+        Crawler.delay.get_episodes_for_show(show.id)
       end
     end
 
-    def get_episodes_for_show(show)
+    def get_episodes_for_show(show_id)
+      show = Show.find(show_id)
       # http://www.imdb.com/title/tt0141842
       url = "#{base_url}/title/#{show.imdb_id}/episodes"
       doc = Nokogiri::HTML(open(url))

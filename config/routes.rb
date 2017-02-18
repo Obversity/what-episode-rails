@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       put 'flag', to: 'questions#flag'
     end
   end
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/admin/sidekiq'
 end
