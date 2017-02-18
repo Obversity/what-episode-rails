@@ -3,10 +3,6 @@ class ShowsController < ApplicationController
   def index
     query = params[:search]
     @shows = Show.search(query)
-    if @shows.none?
-      OmdbFetcher.fetch(query)
-      @shows = Show.search(query)
-    end
     @show = @shows.first
     if @show.present?
       render json: @show.as_json(include:
