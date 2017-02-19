@@ -31,6 +31,7 @@ require 'capistrano/rails/migrations'
 require "capistrano/rbenv"
 require 'capistrano/puma'
 require 'capistrano/sidekiq'
+require 'capistrano/nvm'
 require "whenever/capistrano"
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
