@@ -8,7 +8,7 @@ class QuestionsController < ApplicationController
       question.save
       render json: { question: question }, status: 201
     else
-      render json: { errors: question.errors.messages }, status: 400
+      render json: { errors: question.errors.full_messages }, status: 400
     end
   end
 
@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
       question.save
       render json: { question: question }, status: 200
     else
-      render json: { errors: question.errors.messages }, status: 400
+      render json: { errors: question.errors.full_messages }, status: 400
     end
   end
 

@@ -3,4 +3,5 @@ class Question < ApplicationRecord
   belongs_to :episode
 
   validates :episode, :event, presence: true
+  validates :event, length: { in: 10..100 }
 end
