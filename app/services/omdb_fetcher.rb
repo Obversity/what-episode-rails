@@ -3,10 +3,11 @@ class OmdbFetcher < Fetcher
   self.base_url = "http://www.omdbapi.com"
 
   def self.fetch(query)
-    query_url = "#{base_url}?t=#{query}"
+    query_url = "#{base_url}?t=#{query}&type=series"
     result = get_results(query_url)
     unless result["Response"] == "False"
-      if result["Type"] == "series"
+      total_seasons = result["totalSeasons"].to_i
+      if total_seasons > 0
         show = Show.find_or_initialize_by(title: result["Title"])
         show.attributes = {
           year: result["Year"],
