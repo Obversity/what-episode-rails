@@ -70,6 +70,7 @@ GEM
     coderay (1.1.1)
     concurrent-ruby (1.0.4)
     connection_pool (2.2.1)
+    dalli (2.7.6)
     erubis (2.7.0)
     ffi (1.9.17)
     figaro (1.1.1)
@@ -185,6 +186,8 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.0)
   capistrano-sidekiq
   capistrano3-puma
+  connection_pool
+  dalli
   figaro
   listen (~> 3.0.5)
   pg (~> 0.18)
@@ -203,4 +206,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.13.7
+   1.14.4

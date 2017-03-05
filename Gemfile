@@ -27,6 +27,10 @@ gem 'rack-cors'
 # for environment configuration / application.yml
 gem "figaro"
 
+# caching in production
+gem 'dalli'
+gem 'connection_pool'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
