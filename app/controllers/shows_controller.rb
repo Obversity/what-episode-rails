@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
 
   def index
     # ensure nginx caches results for 2 minutes in case of high load
-    expires_in 2.minutes
+    expires_in 2.minutes, public: true
 
     query = params[:search]
     @show = Show.search(query).first
@@ -10,7 +10,7 @@ class ShowsController < ApplicationController
       OmdbFetcher.fetch(query)
       @show = Show.search(query).first
     end
-    
+
     if @show.present?
       render json: @show.as_json(include:
         { seasons: { include: { episodes: { include: :questions } } }, }
@@ -21,8 +21,8 @@ class ShowsController < ApplicationController
   end
 
   def shows_list
-    expires_in 2.minutes
-    
+    expires_in 2.minutes, public: true
+
     render json: Show.pluck(:title)
   end
 
