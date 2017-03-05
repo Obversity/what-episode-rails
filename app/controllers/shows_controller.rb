@@ -21,6 +21,8 @@ class ShowsController < ApplicationController
   end
 
   def shows_list
+    expires_in 2.minutes
+    
     render json: Show.pluck(:title)
   end
 
