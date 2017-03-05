@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_and_belongs_to_many :shows
+
   validates :password, :salt, presence: true
   validates :username, presence: true, if: ->{ email.blank? }
   validates :email, presence: true, if: ->{ username.blank? }

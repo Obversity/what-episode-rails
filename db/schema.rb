@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215123306) do
+ActiveRecord::Schema.define(version: 20170219215622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 20170215123306) do
     t.datetime "updated_at", null: false
     t.string   "imdb_id"
     t.index ["imdb_id"], name: "index_shows_on_imdb_id", unique: true, using: :btree
+  end
+
+  create_table "shows_users", id: false, force: :cascade do |t|
+    t.integer "show_id", null: false
+    t.integer "user_id", null: false
+    t.index ["show_id", "user_id"], name: "index_shows_users_on_show_id_and_user_id", using: :btree
+    t.index ["user_id", "show_id"], name: "index_shows_users_on_user_id_and_show_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
