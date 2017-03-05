@@ -5,12 +5,12 @@ class ShowsController < ApplicationController
     expires_in 2.minutes
 
     query = params[:search]
-    @shows = Show.search(query)
-    if @shows.none?
+    @show = Show.search(query).first
+    if @show.blank?
       OmdbFetcher.fetch(query)
-      @shows = Show.search(query)
+      @show = Show.search(query).first
     end
-    @show = @shows.first
+    
     if @show.present?
       render json: @show.as_json(include:
         { seasons: { include: { episodes: { include: :questions } } }, }
