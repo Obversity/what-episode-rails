@@ -1,6 +1,9 @@
 class ShowsController < ApplicationController
 
   def index
+    # ensure nginx caches results for 2 minutes in case of high load
+    expires_in 2.minutes
+
     query = params[:search]
     @shows = Show.search(query)
     if @shows.none?
