@@ -66,6 +66,15 @@ namespace :js do
       execute :ln, '-sf', "#{fetch(:js_repo_path)}/build/*", "#{current_path}/public"
     end
   end
+
+  # sync the build directory up to s3 bucket
+  task :sync do
+    on roles(:app) do
+      within fetch(:js_repo_path) do
+        execute :aws, 's3', 'sync', '--profile', 'episodefinder', 'build', 's3://episodefinder'
+      end
+    end
+  end
 end
 
 
@@ -105,7 +114,7 @@ namespace :deploy do
   before :starting,     'js:update_repo'
   after  :finishing,    :cleanup
   before :publishing,   'js:build'
-  after  :published,    'js:link'
+  after  :published,    'js:sync'
 end
 
 
