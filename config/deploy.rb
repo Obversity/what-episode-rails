@@ -35,6 +35,9 @@ set :nvm_map_bins, %w{node npm}
 set :js_repo_url, 'https://github.com/Obversity/what-episode-js.git'
 set :js_repo_path, "#{shared_path}/js"
 
+# specify aws cli executable on the server
+SSHKit.config.command_map[:aws] = "/home/deploy/.local/bin/aws"
+
 namespace :js do
   # clone or update the js repo
   task :update_repo do
