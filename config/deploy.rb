@@ -70,11 +70,12 @@ namespace :js do
     end
   end
 
-  # sync the build directory up to s3 bucket
+  # sync the build directory up to s3 bucket and invalidate cloudfront cache
   task :sync do
     on roles(:app) do
       within fetch(:js_repo_path) do
         execute :aws, 's3', 'sync', '--profile', 'episodefinder', 'build', 's3://episodefinder'
+        execute :aws, 'cloudfront', 'create-invalidation', '--profile=episodefinder', '--distribution-id', 'E2ZLADHXJF7KOV', '--paths', '/index.html'
       end
     end
   end
