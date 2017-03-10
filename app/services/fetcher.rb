@@ -1,3 +1,5 @@
+require 'net/http'
+
 class Fetcher < Object
 
   cattr_accessor :base_url

@@ -4,6 +4,7 @@
 # You can define all roles on a single server, or split them:
 
 server "45.76.116.184", user: "deploy", roles: %w{app db web}, primary: true
+set :deploy_to, "/data/#{fetch(:application)}"
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
