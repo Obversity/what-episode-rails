@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170219215622) do
+ActiveRecord::Schema.define(version: 20170311072901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,8 @@ ActiveRecord::Schema.define(version: 20170219215622) do
     t.integer  "season_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.text     "plot"
+    t.text     "image_url"
     t.index ["imdb_id"], name: "index_episodes_on_imdb_id", unique: true, using: :btree
     t.index ["season_id"], name: "index_episodes_on_season_id", using: :btree
   end

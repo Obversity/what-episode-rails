@@ -1,6 +1,6 @@
 class Episode < ApplicationRecord
 
-  belongs_to :season, touch: true
+  belongs_to :season, touch: true, required: true
   has_one :show, through: :season
   has_many :questions, dependent: :destroy
 
